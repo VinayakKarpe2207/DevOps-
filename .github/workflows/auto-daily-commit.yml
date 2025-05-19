@@ -2,7 +2,10 @@ name: Auto Daily Commit
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Runs every day at 00:00 UTC
+    - cron: '0 0 * * *'   # Runs at 00:00 UTC
+    - cron: '0 6 * * *'   # Runs at 06:00 UTC
+    - cron: '0 12 * * *'  # Runs at 12:00 UTC
+    - cron: '0 18 * * *'  # Runs at 18:00 UTC
 
 jobs:
   auto-commit:
@@ -20,6 +23,6 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add .
-          git commit -m "🤖 Daily update - $(date -u)" || echo "Nothing to commit"
+          git add last_updated.txt
+          git commit -m "🤖 Update - $(date -u)" || echo "Nothing to commit"
           git push
