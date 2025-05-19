@@ -25,7 +25,10 @@ name: Auto Daily Commit
 
 on:
   schedule:
-    - cron: '0 0 * * *'  # Every day at 00:00 UTC
+    - cron: '0 0 * * *'   # Runs at 00:00 UTC
+    - cron: '0 6 * * *'   # Runs at 06:00 UTC
+    - cron: '0 12 * * *'  # Runs at 12:00 UTC
+    - cron: '0 18 * * *'  # Runs at 18:00 UTC
 
 jobs:
   auto-commit:
